@@ -7,7 +7,8 @@ import time
 options = Options()
 options.add_argument('--headless')
 options.add_argument('--disable-gpu')
-driver = webdriver.Chrome(options=options)
+service = Service('/usr/lib64/chromium-browser/chromedriver')
+driver = webdriver.Chrome(service=service, options=options)
 
 def get_parsed_text():
     driver.get('https://m.blog.naver.com/stageinfo/?categoryNo=0&listStyle=post')    
