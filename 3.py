@@ -17,7 +17,6 @@ import linecache
 USED_IPS = set()
 MAX_IPS = 1000
 
-
 def get_tor_ip():
     with Controller.from_port(port = 9051) as controller:
         controller.authenticate(password="1234qwer")
@@ -42,7 +41,7 @@ def open_url():
     driver = webdriver.Chrome(service=service, options=options)
     line_number = random.randint(1, len(open('post_name.txt',encoding='utf-8').readlines()))
     post_name = linecache.getline('post_name.txt', line_number).strip()
-    print('📢 '+ post_name +'search naver')
+    print('📢 < '+ post_name +' >search naver')
     driver.get('https://search.naver.com/search.naver?ie=UTF-8&query=%22'+post_name+'%22&sm=chr_hty')
     wait = WebDriverWait(driver, 10)
     wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
@@ -50,6 +49,8 @@ def open_url():
     driver.find_element(By.CSS_SELECTOR, 'a[href*="blog.naver.com/stageinfo"]').click()
     print('📢 post load')
     wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
+    current_url=driver.current_url
+    print(current_url)
     print('📢 post load complete')
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     print('📢 scrooll down')
