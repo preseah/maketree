@@ -30,7 +30,7 @@ def reset_used_ips():
     global USED_IPS
     USED_IPS = set()
 
-def open_url(url):    
+def open_url():    
     hostname="socks5://127.0.0.1"
     port="9050"
     options = webdriver.ChromeOptions()
