@@ -42,7 +42,7 @@ def open_url():
     driver = webdriver.Chrome(service=service, options=options)
     line_number = random.randint(1, len(open('post_name.txt',encoding='utf-8').readlines()))
     post_name = linecache.getline('post_name.txt', line_number).strip()
-    print('📢 '+ line_number +'search naver')
+    print('📢 '+ post_name +'search naver')
     driver.get('https://search.naver.com/search.naver?ie=UTF-8&query=%22'+post_name+'%22&sm=chr_hty')
     wait = WebDriverWait(driver, 10)
     wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
