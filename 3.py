@@ -58,11 +58,6 @@ def open_url(url):
     time.sleep(wait)
     driver.quit()
 
-def get_post_url():
-    #requests 로 https://m.blog.naver.com/stageinfo/?categoryNo=0&listStyle=post
-    
-
-
 if __name__=="__main__":
     while True:
         ip = get_tor_ip()
