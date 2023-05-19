@@ -72,7 +72,10 @@ if __name__=="__main__":
         gmt_now = datetime.datetime.utcnow()
         kst_now = gmt_now + datetime.timedelta(hours=9)
         print(kst_now)
-        open_url()
-        end=random.randint(10,70)
-        print("휴식시간 :" + str(end))
-        time.sleep(end)
+        try:
+            open_url()
+            end=random.randint(10,70)
+            print("휴식시간 :" + str(end))
+            time.sleep(end)
+        except:
+            pass
