@@ -29,3 +29,8 @@ if __name__ == '__main__':
         print(span_text)
 
 
+# post_name.txt 내용을 post_name 리스트에 저장
+# post_name=[]
+# with open('post_name.txt', 'r',encoding='utf-8') as f:
+#     for line in f:
+#         post_name.append(line.strip())  
