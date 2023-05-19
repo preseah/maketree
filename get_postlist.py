@@ -25,8 +25,9 @@ def get_parsed_text():
 
 if __name__ == '__main__':
     span_texts = get_parsed_text()
-    for span_text in span_texts:
-        print(span_text)
+    with open('post_name.txt', 'w',encoding='utf-8') as f:
+        for title in span_texts:
+            f.write(title + '\n')
 
 
 # post_name.txt 내용을 post_name 리스트에 저장
