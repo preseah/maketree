@@ -40,36 +40,36 @@ def open_url():
     line_number = random.randint(1, len(open('post_name.txt',encoding='utf-8').readlines()))
     post_name = linecache.getline('post_name.txt', line_number).strip()
     print('📢 < '+ post_name +' > ')
-    case=random.choice(1,4)
+    case=random.randint(1, 4)
     print('📢 case : '+str(case))
-    if case=='1':
+    if case==1:
         driver.get('https://search.naver.com/search.naver?ie=UTF-8&query=%22'+post_name+'%22&sm=chr_hty')
         wait = WebDriverWait(driver, 10)
         wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
-        print('📢 desktop normal search complete')
+        print('📢 [desktop] normal search complete')
         driver.find_element(By.CSS_SELECTOR, 'a[href*="blog.naver.com/stageinfo/"]').click()
         driver.switch_to.window(driver.window_handles[-1])
         wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
-    if case=='2':
+    if case==2:
         driver.get('https://search.naver.com/search.naver?where=view&sm=tab_jum&query=%22'+post_name+'%22')
         wait = WebDriverWait(driver, 10)
         wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
-        print('📢 desktop view search complete')
+        print('📢 [desktop] view search complete')
         driver.find_element(By.CSS_SELECTOR, 'a[href*="blog.naver.com/stageinfo/"]').click()
         driver.switch_to.window(driver.window_handles[-1])
         wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
-    if case=='3':
+    if case==3:
         driver.get('https://m.search.naver.com/search.naver?sm=mtp_hty.top&where=m&query=%22'+post_name+'%22')
         wait = WebDriverWait(driver, 10)
         wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
-        print('📢 mobile normal search complete')
+        print('📢 [mobile] normal search complete')
         driver.find_element(By.CSS_SELECTOR, 'a[href*="blog.naver.com/stageinfo/"]').click()
         wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
-    if case=='4':
+    if case==4:
         driver.get('https://m.search.naver.com/search.naver?where=m_view&sm=mtb_jum&query='+post_name+'%22')
         wait = WebDriverWait(driver, 10)
         wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
-        print('📢 mobile view search complete')
+        print('📢 [mobile] view search complete')
         driver.find_element(By.CSS_SELECTOR, 'a[href*="blog.naver.com/stageinfo/"]').click()
         wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
     print('📢 post load complete')
