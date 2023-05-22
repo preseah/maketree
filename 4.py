@@ -92,12 +92,10 @@ if __name__=="__main__":
         gmt_now = datetime.datetime.utcnow()
         kst_now = gmt_now + datetime.timedelta(hours=9)
         print(f"📢 Current TIME : {kst_now}")
-        open_url()
-
-        # try:
-        #     open_url()
-        #     end=random.randint(60,180)
-        #     print("📢 WAIT : " + str(end))
-        #     time.sleep(end)
-        # except:
-        #     pass
+        try:
+            open_url()
+            # end=random.randint(60,180)
+            # print("📢 WAIT : " + str(end))
+            # time.sleep(end)
+        except:
+            pass
