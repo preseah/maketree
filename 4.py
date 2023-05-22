@@ -41,7 +41,8 @@ def open_url():
     post_name = linecache.getline('post_name.txt', line_number).strip()
     print('📢 < '+ post_name +' > ')
     case=random.choice(1,4)
-    if case==1:
+    print('📢 case : '+str(case))
+    if case=='1':
         driver.get('https://search.naver.com/search.naver?ie=UTF-8&query=%22'+post_name+'%22&sm=chr_hty')
         wait = WebDriverWait(driver, 10)
         wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
@@ -49,7 +50,7 @@ def open_url():
         driver.find_element(By.CSS_SELECTOR, 'a[href*="blog.naver.com/stageinfo/"]').click()
         driver.switch_to.window(driver.window_handles[-1])
         wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
-    if case==2:
+    if case=='2':
         driver.get('https://search.naver.com/search.naver?where=view&sm=tab_jum&query=%22'+post_name+'%22')
         wait = WebDriverWait(driver, 10)
         wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
@@ -57,14 +58,14 @@ def open_url():
         driver.find_element(By.CSS_SELECTOR, 'a[href*="blog.naver.com/stageinfo/"]').click()
         driver.switch_to.window(driver.window_handles[-1])
         wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
-    if case==3:
+    if case=='3':
         driver.get('https://m.search.naver.com/search.naver?sm=mtp_hty.top&where=m&query=%22'+post_name+'%22')
         wait = WebDriverWait(driver, 10)
         wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
         print('📢 mobile normal search complete')
         driver.find_element(By.CSS_SELECTOR, 'a[href*="blog.naver.com/stageinfo/"]').click()
         wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
-    if case==4:
+    if case=='4':
         driver.get('https://m.search.naver.com/search.naver?where=m_view&sm=mtb_jum&query='+post_name+'%22')
         wait = WebDriverWait(driver, 10)
         wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
@@ -91,10 +92,12 @@ if __name__=="__main__":
         gmt_now = datetime.datetime.utcnow()
         kst_now = gmt_now + datetime.timedelta(hours=9)
         print(f"📢 Current TIME : {kst_now}")
-        try:
-            open_url()
-            end=random.randint(60,180)
-            print("📢 WAIT : " + str(end))
-            time.sleep(end)
-        except:
-            pass
+        open_url()
+
+        # try:
+        #     open_url()
+        #     end=random.randint(60,180)
+        #     print("📢 WAIT : " + str(end))
+        #     time.sleep(end)
+        # except:
+        #     pass
