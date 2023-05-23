@@ -39,7 +39,7 @@ def open_url():
     options.add_argument('--proxy-server=%s:%s' % ('socks5://127.0.0.1', '9050'))
     driver = webdriver.Chrome(service=service, options=options)
     line_number = random.randint(1, len(open('post_name.txt',encoding='utf-8').readlines()))
-    post_name = linecache.getline('post_name', line_number).strip()
+    post_name = linecache.getline('post_name.txt', line_number).strip()
     print('📢 < '+ post_name +' > ')
     case=random.randint(1, 5)
     print('📢 case : '+str(case))
