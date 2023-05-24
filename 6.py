@@ -66,6 +66,13 @@ def open_url():
         print('📢 [mobile] normal search complete')
         driver.find_element(By.CSS_SELECTOR, 'a[href*="m.blog.naver.com/stageinfo/"]').click()
         wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
+    if case==4:
+        driver.get('https://m.search.naver.com/search.naver?where=m_view&sm=mtb_jum&query=%22'+post_name+'%22')
+        wait = WebDriverWait(driver, 20)
+        wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
+        print('📢 [mobile] view search complete')
+        driver.find_element(By.CSS_SELECTOR, 'a[href*="m.blog.naver.com/stageinfo/"]').click()
+        wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
     if case==5:
         driver.get('https://koreanfestivalguide.wordpress.com/2023/04/03/about-the-april-and-may-music-festival-in-korea/')
         wait = WebDriverWait(driver, 20)
