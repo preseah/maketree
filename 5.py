@@ -40,7 +40,7 @@ def open_url():
     line_number = random.randint(1, len(open('post_name.txt',encoding='utf-8').readlines()))
     post_name = linecache.getline('post_name.txt', line_number).strip()
     print('📢 < '+ post_name +' > ')
-    case=random.randint(1, 4)
+    case=random.randint(1, 5)
     print('📢 case : '+str(case))
     if case==1:
         driver.get('https://search.naver.com/search.naver?ie=UTF-8&query=%22'+post_name+'%22&sm=chr_hty')
